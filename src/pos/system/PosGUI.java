@@ -33,7 +33,7 @@ public class PosGUI extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelTab = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonTransaction = new javax.swing.JButton();
@@ -44,7 +44,7 @@ public class PosGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        jButtonAdminLogin = new javax.swing.JButton();
         jPanelMainBody = new javax.swing.JPanel();
         jPanelWelcome = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -79,6 +79,8 @@ public class PosGUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jPanelAdmin = new javax.swing.JPanel();
+        jTextFieldCreateCategory = new javax.swing.JTextField();
+        jButtonCreateCategory = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemSavePurchase = new javax.swing.JMenuItem();
@@ -103,8 +105,8 @@ public class PosGUI extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanelTab.setBackground(new java.awt.Color(204, 204, 204));
+        jPanelTab.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 13)); // NOI18N
         jLabel1.setText("Views");
@@ -156,38 +158,43 @@ public class PosGUI extends javax.swing.JFrame {
                 jButtonCheckOutMouseClicked(evt);
             }
         });
+        jButtonCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCheckOutActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 13)); // NOI18N
         jLabel3.setText("Online Purchases");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelTabLayout = new javax.swing.GroupLayout(jPanelTab);
+        jPanelTab.setLayout(jPanelTabLayout);
+        jPanelTabLayout.setHorizontalGroup(
+            jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTabLayout.createSequentialGroup()
+                .addGroup(jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTabLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanelTabLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelTabLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonContinueShopping, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jButtonSearchForProduct, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonCheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelTabLayout.setVerticalGroup(
+            jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTabLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -204,10 +211,10 @@ public class PosGUI extends javax.swing.JFrame {
                 .addComponent(jButtonCheckOut)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
-                .addGap(239, 239, 239))
+                .addGap(230, 230, 230))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 510));
+        getContentPane().add(jPanelTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 510));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -216,20 +223,20 @@ public class PosGUI extends javax.swing.JFrame {
         jLabel4.setText("Admin");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 49, -1));
 
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jButton6.setText("LogIn");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAdminLogin.setBackground(new java.awt.Color(102, 102, 102));
+        jButtonAdminLogin.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jButtonAdminLogin.setText("LogIn");
+        jButtonAdminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                jButtonAdminLoginMouseClicked(evt);
             }
         });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdminLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonAdminLoginActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 70, 20));
+        jPanel3.add(jButtonAdminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 70, 20));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 140, 40));
 
@@ -397,6 +404,11 @@ public class PosGUI extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListProduct.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListProductValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jListProduct);
 
         jPanelCategorySelect.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 430, 140));
@@ -446,18 +458,35 @@ public class PosGUI extends javax.swing.JFrame {
 
         jPanelMainBody.add(jPanelCheckOut, "cardCheckOut");
 
+        jButtonCreateCategory.setText("Create Category");
+        jButtonCreateCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateCategoryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAdminLayout = new javax.swing.GroupLayout(jPanelAdmin);
         jPanelAdmin.setLayout(jPanelAdminLayout);
         jPanelAdminLayout.setHorizontalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(jPanelAdminLayout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonCreateCategory)
+                    .addComponent(jTextFieldCreateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
         jPanelAdminLayout.setVerticalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(jPanelAdminLayout.createSequentialGroup()
+                .addGap(206, 206, 206)
+                .addComponent(jTextFieldCreateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCreateCategory)
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
-        jPanelMainBody.add(jPanelAdmin, "card6");
+        jPanelMainBody.add(jPanelAdmin, "cardAdmin");
 
         getContentPane().add(jPanelMainBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 900, 550));
 
@@ -477,6 +506,11 @@ public class PosGUI extends javax.swing.JFrame {
                 jMenuItemExitMouseClicked(evt);
             }
         });
+        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExitActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jMenuItemExit);
 
         jMenuBar1.add(jMenuFile);
@@ -486,9 +520,10 @@ public class PosGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButtonAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminLoginActionPerformed
+       CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
+        c1.show(jPanelMainBody, "cardAdmin");
+    }//GEN-LAST:event_jButtonAdminLoginActionPerformed
 
     private void jButtonSearchForProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSearchForProductMouseClicked
         jButtonSearchForProduct.setBackground(Color.white);
@@ -565,22 +600,42 @@ public class PosGUI extends javax.swing.JFrame {
     private void jMenuItemExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemExitMouseClicked
 //        javax.swing.JOptionPane.showMessageDialog(this, "Hello GUI World");
 //        javax.swing.JOptionPane.showMessageDialog(rootPane, evt, "Exit?", HEIGHT);
-        System.exit(0);
+       System.exit(0);
 //Got a Problem here to work on later
 
     }//GEN-LAST:event_jMenuItemExitMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void jButtonAdminLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAdminLoginMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_jButtonAdminLoginMouseClicked
 
     private void jListCategoriesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListCategoriesValueChanged
        // read up list selection changed event model and the use of the getValueIsAdjusting() function
-        if(!evt.getValueIsAdjusting()){
+        if(!evt.getValueIsAdjusting()){ 
             String cat = jListCategories.getSelectedValue();
+            System.out.println(cat + " is selected");
             Purchases.ListItems(cat);
         }
     }//GEN-LAST:event_jListCategoriesValueChanged
+
+    private void jButtonCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCheckOutActionPerformed
+
+    private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemExitActionPerformed
+
+    private void jListProductValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProductValueChanged
+        // TODO add your handling code here:
+        //Displays the products available in the selected category
+    }//GEN-LAST:event_jListProductValueChanged
+
+    private void jButtonCreateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCategoryActionPerformed
+        String categoryToCreate = jTextFieldCreateCategory.getText();
+        Product.createCategory(categoryToCreate);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreateCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -628,10 +683,11 @@ public class PosGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonAdminLogin;
     private javax.swing.JButton jButtonCheck;
     private javax.swing.JButton jButtonCheckOut;
     private javax.swing.JButton jButtonContinueShopping;
+    private javax.swing.JButton jButtonCreateCategory;
     private javax.swing.JButton jButtonPurchase;
     private javax.swing.JButton jButtonSearchForProduct;
     private javax.swing.JButton jButtonTransaction;
@@ -657,7 +713,6 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemExit;
     private javax.swing.JMenuItem jMenuItemSavePurchase;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -670,6 +725,7 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelProductSelect;
     private javax.swing.JPanel jPanelSearchForProducts;
     private javax.swing.JPanel jPanelShoppingCart;
+    private javax.swing.JPanel jPanelTab;
     private javax.swing.JPanel jPanelWelcome;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -678,5 +734,6 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField jTextFieldCreateCategory;
     // End of variables declaration//GEN-END:variables
 }
