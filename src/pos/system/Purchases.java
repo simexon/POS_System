@@ -50,45 +50,22 @@ public class Purchases {
 
             while (rs.next()) {
                 String category_name = rs.getString("Category_Name");
-                int i = 0;
                 //missing** code to Display jButton with Category_Name as text on it and i variable name
                 System.out.println(category_name);
                 categories.add(category_name);
-                i++;
             }
 
         } catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Purchases.class.getName()).log(Level.SEVERE, null, ex);
         }
         return categories;
-//        catch (InstantiationException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (IllegalAccessException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (ClassNotFoundException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (SQLException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//            //Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-         
-        
-//        catch (InstantiationException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (IllegalAccessException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (ClassNotFoundException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//        } catch (SQLException ex) {
-//            System.out.println("Log In failed: An Exception has occurred! " + ex);
-//            //Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
 
-    public static void ListItems(String category) {
+    public static List<String> ListItems(String category) {
         //this function lists all the Product names(String) in the database table(which holds all the available categories in the database)
         //Check For the Item on the database and lists all the available items and returns the ProductID
         //snippet: while(rs.nxt){}
+        List<String> products = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/POS_System", "root", "");
@@ -100,19 +77,14 @@ public class Purchases {
                 String productName = rs.getString("Name");
                 int productPrice = rs.getInt("Price");
                 String productDescription = rs.getString("Description");
+                products.add(productName + "        " + productPrice + "        " + productDescription);
                 //missing** code to Display jButton with product: Name\t Price\t \tDesciption on it
             }
 
-        } catch (InstantiationException ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } catch (IllegalAccessException ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        } catch (SQLException ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-            //Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(Purchases.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return products;
     }
 
     public static void AddToShoppingCart(String name) {
@@ -179,8 +151,8 @@ public class Purchases {
     public static void PrintRecipt() {
 //  parameters: Date, Name of P, No of stock, IDs of P          
     }
-    
-    public static void RestoreItems(int ProductID){
-        
+
+    public static void RestoreItems(int ProductID) {
+
     }
 }
