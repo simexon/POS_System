@@ -68,13 +68,11 @@ public class PosGUI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
         jListCategories = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListProduct = new javax.swing.JList<>();
         jPanelProductSelect = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPaneProducts = new javax.swing.JScrollPane();
-        jListProducts = new javax.swing.JList<>();
         jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListProduct = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -297,7 +295,8 @@ public class PosGUI extends javax.swing.JFrame {
 
         jPanelMainBody.add(jPanelContinueShopping, "cardContinueShopping");
 
-        jPanelCheckOut.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCheckOut.setBackground(java.awt.Color.lightGray);
+        jPanelCheckOut.setOpaque(false);
         jPanelCheckOut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelCheckOut.setFont(new java.awt.Font("TakaoPGothic", 1, 16)); // NOI18N
@@ -343,33 +342,31 @@ public class PosGUI extends javax.swing.JFrame {
             jPanelShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShoppingCartLayout.createSequentialGroup()
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelShoppingCartLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                        .addComponent(jButtonPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))
-                    .addGroup(jPanelShoppingCartLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelShoppingCart)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabelShoppingCart)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelShoppingCartLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         jPanelShoppingCartLayout.setVerticalGroup(
             jPanelShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShoppingCartLayout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelShoppingCart, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
-        jPanelCheckOut.add(jPanelShoppingCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, -10, 240, 560));
+        jPanelCheckOut.add(jPanelShoppingCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 240, 470));
 
         jPanelAddProductsToCart.setBackground(new java.awt.Color(255, 255, 255));
         jPanelAddProductsToCart.setOpaque(false);
@@ -384,6 +381,7 @@ public class PosGUI extends javax.swing.JFrame {
         jPanelCategorySelect.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
         jPanelCategorySelect.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 220, 10));
 
+        jListCategories.setBackground(getBackground());
         jListCategories.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -397,7 +395,17 @@ public class PosGUI extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jListCategories);
 
-        jPanelCategorySelect.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 430, 130));
+        jPanelCategorySelect.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 430, 330));
+
+        jPanelAddProductsToCart.add(jPanelCategorySelect, "CategorySelect");
+
+        jPanelProductSelect.setOpaque(false);
+        jPanelProductSelect.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        jLabel8.setText("Select Product");
+        jPanelProductSelect.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jPanelProductSelect.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 220, 10));
 
         jListProduct.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -411,29 +419,7 @@ public class PosGUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jListProduct);
 
-        jPanelCategorySelect.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 430, 140));
-
-        jPanelAddProductsToCart.add(jPanelCategorySelect, "card2");
-
-        jPanelProductSelect.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelProductSelect.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        jLabel8.setText("Select Product");
-        jPanelProductSelect.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jScrollPaneProducts.setBorder(null);
-
-        jListProducts.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jListProducts.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPaneProducts.setViewportView(jListProducts);
-
-        jPanelProductSelect.add(jScrollPaneProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 350, 340));
-        jPanelProductSelect.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 220, 10));
+        jPanelProductSelect.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 430, 310));
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setFont(new java.awt.Font("Ubuntu", 0, 13)); // NOI18N
@@ -445,14 +431,18 @@ public class PosGUI extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Select Category");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanelProductSelect.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 20));
 
-        jPanelAddProductsToCart.add(jPanelProductSelect, "card3");
+        jPanelAddProductsToCart.add(jPanelProductSelect, "ProductSelect");
 
         jPanelCheckOut.add(jPanelAddProductsToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 520, 510));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mexonShoppingSystem resource/Mexon Shopping SytemsMain.png"))); // NOI18N
-        jLabel10.setOpaque(true);
         jLabel10.setVerifyInputWhenFocusTarget(false);
         jPanelCheckOut.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 550));
 
@@ -521,7 +511,7 @@ public class PosGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminLoginActionPerformed
-       CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
+        CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
         c1.show(jPanelMainBody, "cardAdmin");
     }//GEN-LAST:event_jButtonAdminLoginActionPerformed
 
@@ -531,13 +521,13 @@ public class PosGUI extends javax.swing.JFrame {
         jButtonCheck.setBackground(Color.DARK_GRAY);
         jButtonContinueShopping.setBackground(Color.DARK_GRAY);
         jButtonCheckOut.setBackground(Color.DARK_GRAY);
-        
+
         jButtonSearchForProduct.setForeground(Color.black);
         jButtonTransaction.setForeground(Color.white);
         jButtonCheck.setForeground(Color.white);
         jButtonContinueShopping.setForeground(Color.white);
         jButtonCheckOut.setForeground(Color.white);
-        
+
         CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
         c1.show(jPanelMainBody, "cardSearchForProducts");
         //This function displays the search for products panel when it is clicked
@@ -554,15 +544,18 @@ public class PosGUI extends javax.swing.JFrame {
         jButtonCheck.setBackground(Color.DARK_GRAY);
         jButtonContinueShopping.setBackground(Color.DARK_GRAY);
         jButtonCheckOut.setBackground(Color.white);
-        
+
         jButtonSearchForProduct.setForeground(Color.white);
         jButtonTransaction.setForeground(Color.white);
         jButtonCheck.setForeground(Color.white);
         jButtonContinueShopping.setForeground(Color.white);
         jButtonCheckOut.setForeground(Color.black);
-        
+
         CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
         c1.show(jPanelMainBody, "cardCheckOut");
+        CardLayout c2 = (CardLayout) jPanelAddProductsToCart.getLayout();
+        c2.show(jPanelAddProductsToCart, "CategorySelect");
+
         //This function displays the "CheckOut" panel when it is clicked and 
         //also set a specific colour on the jbutton 
         DefaultListModel<String> catModel = new DefaultListModel();
@@ -570,7 +563,7 @@ public class PosGUI extends javax.swing.JFrame {
             catModel.addElement(category);
         }
         jListCategories.setModel(catModel);
-        Purchases.ListCategories();
+//        Purchases.ListCategories();
 
     }//GEN-LAST:event_jButtonCheckOutMouseClicked
 
@@ -580,13 +573,13 @@ public class PosGUI extends javax.swing.JFrame {
         jButtonCheck.setBackground(Color.DARK_GRAY);
         jButtonContinueShopping.setBackground(Color.white);
         jButtonCheckOut.setBackground(Color.DARK_GRAY);
-        
+
         jButtonSearchForProduct.setForeground(Color.white);
         jButtonTransaction.setForeground(Color.white);
         jButtonCheck.setForeground(Color.white);
         jButtonContinueShopping.setForeground(Color.black);
         jButtonCheckOut.setForeground(Color.white);
-        
+
         CardLayout c1 = (CardLayout) jPanelMainBody.getLayout();
         c1.show(jPanelMainBody, "cardContinueShopping");
     }//GEN-LAST:event_jButtonContinueShoppingMouseClicked
@@ -600,7 +593,7 @@ public class PosGUI extends javax.swing.JFrame {
     private void jMenuItemExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemExitMouseClicked
 //        javax.swing.JOptionPane.showMessageDialog(this, "Hello GUI World");
 //        javax.swing.JOptionPane.showMessageDialog(rootPane, evt, "Exit?", HEIGHT);
-       System.exit(0);
+        System.exit(0);
 //Got a Problem here to work on later
 
     }//GEN-LAST:event_jMenuItemExitMouseClicked
@@ -610,11 +603,20 @@ public class PosGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdminLoginMouseClicked
 
     private void jListCategoriesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListCategoriesValueChanged
-       // read up list selection changed event model and the use of the getValueIsAdjusting() function
-        if(!evt.getValueIsAdjusting()){ 
+        // read up list selection changed event model and the use of the getValueIsAdjusting() function
+        if (!evt.getValueIsAdjusting()) {
             String cat = jListCategories.getSelectedValue();
-            System.out.println(cat + " is selected");
-            Purchases.ListItems(cat);
+
+            CardLayout c1 = (CardLayout) jPanelAddProductsToCart.getLayout();
+            c1.show(jPanelAddProductsToCart, "ProductSelect");
+            
+            System.out.println(cat + " is selected from categories");
+            
+            DefaultListModel<String> catModel = new DefaultListModel();
+            for (String products : Purchases.ListItems(cat)) {
+                catModel.addElement(products);
+            }
+            jListCategories.setModel(catModel);
         }
     }//GEN-LAST:event_jListCategoriesValueChanged
 
@@ -637,6 +639,10 @@ public class PosGUI extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCreateCategoryActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -651,21 +657,21 @@ public class PosGUI extends javax.swing.JFrame {
                 if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(PosGUI.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(PosGUI.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(PosGUI.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PosGUI.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -707,7 +713,6 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jListCategories;
     private javax.swing.JList<String> jListProduct;
-    private javax.swing.JList<String> jListProducts;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuFile;
     private javax.swing.JMenuItem jMenuItem1;
@@ -730,7 +735,6 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPaneProducts;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
