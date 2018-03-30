@@ -72,7 +72,7 @@ public class PosGUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListProduct = new javax.swing.JList<>();
+        jListProducts = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -388,6 +388,11 @@ public class PosGUI extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jListCategories.setFixedCellHeight(25);
+        jListCategories.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListCategoriesMouseClicked(evt);
+            }
+        });
         jListCategories.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jListCategoriesValueChanged(evt);
@@ -407,17 +412,17 @@ public class PosGUI extends javax.swing.JFrame {
         jPanelProductSelect.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
         jPanelProductSelect.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 220, 10));
 
-        jListProduct.setModel(new javax.swing.AbstractListModel<String>() {
+        jListProducts.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListProduct.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        jListProducts.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListProductValueChanged(evt);
+                jListProductsValueChanged(evt);
             }
         });
-        jScrollPane2.setViewportView(jListProduct);
+        jScrollPane2.setViewportView(jListProducts);
 
         jPanelProductSelect.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 430, 310));
 
@@ -604,20 +609,20 @@ public class PosGUI extends javax.swing.JFrame {
 
     private void jListCategoriesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListCategoriesValueChanged
         // read up list selection changed event model and the use of the getValueIsAdjusting() function
-        if (!evt.getValueIsAdjusting()) {
-            String cat = jListCategories.getSelectedValue();
-
-            CardLayout c1 = (CardLayout) jPanelAddProductsToCart.getLayout();
-            c1.show(jPanelAddProductsToCart, "ProductSelect");
-            
-            System.out.println(cat + " is selected from categories");
-            
-            DefaultListModel<String> catModel = new DefaultListModel();
-            for (String products : Purchases.ListItems(cat)) {
-                catModel.addElement(products);
-            }
-            jListCategories.setModel(catModel);
-        }
+//        if (!evt.getValueIsAdjusting()) {
+//            String cat = jListCategories.getSelectedValue();
+//
+//            CardLayout c1 = (CardLayout) jPanelAddProductsToCart.getLayout();
+//            c1.show(jPanelAddProductsToCart, "ProductSelect");
+//
+//            System.out.println(cat + " is selected from categories");
+//
+//            DefaultListModel<String> catModel = new DefaultListModel();
+//            for (String products : Purchases.ListItems(cat)) {
+//                catModel.addElement(products);
+//            }
+//            jListCategories.setModel(catModel);
+//        }
     }//GEN-LAST:event_jListCategoriesValueChanged
 
     private void jButtonCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckOutActionPerformed
@@ -628,10 +633,10 @@ public class PosGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemExitActionPerformed
 
-    private void jListProductValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProductValueChanged
+    private void jListProductsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProductsValueChanged
         // TODO add your handling code here:
         //Displays the products available in the selected category
-    }//GEN-LAST:event_jListProductValueChanged
+    }//GEN-LAST:event_jListProductsValueChanged
 
     private void jButtonCreateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCategoryActionPerformed
         String categoryToCreate = jTextFieldCreateCategory.getText();
@@ -642,6 +647,23 @@ public class PosGUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jListCategoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListCategoriesMouseClicked
+        
+            String cat = jListCategories.getSelectedValue();
+
+            CardLayout c1 = (CardLayout) jPanelAddProductsToCart.getLayout();
+            c1.show(jPanelAddProductsToCart, "ProductSelect");
+
+            System.out.println(cat + " is selected from categories");
+
+            DefaultListModel<String> catModel = new DefaultListModel();
+            for (String products : Purchases.ListItems(cat)) {
+                catModel.addElement(products);
+            
+        }
+        jListProducts.setModel(catModel);
+    }//GEN-LAST:event_jListCategoriesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -712,7 +734,7 @@ public class PosGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelShoppingCart;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jListCategories;
-    private javax.swing.JList<String> jListProduct;
+    private javax.swing.JList<String> jListProducts;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuFile;
     private javax.swing.JMenuItem jMenuItem1;
